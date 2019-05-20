@@ -1,6 +1,6 @@
 package UserClasses;
 
-public class Survivor implements User{
+public class Survivor implements User {
     private int zip;
     private String name;
     private int id;
@@ -14,7 +14,7 @@ public class Survivor implements User{
         zip = 92130;
         name = "Tim";
         id = 0000;
-        location = new int[]{500,500};
+        location = new int[]{500, 500};
         age = 25;
         satisfied = false;
         need = "Just a hug";
@@ -34,8 +34,9 @@ public class Survivor implements User{
 
 
     @Override
-    public int[] getLocation(int zip) {
-
+    public int[] setLoc(int zip) {
+        return location;
+        //CSV read and assign of latlong from zip code, see OpenCSV
     }
 
     @Override
