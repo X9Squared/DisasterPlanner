@@ -1,5 +1,7 @@
 package ZipCore;
 
+import java.util.ArrayList;
+
 public class ZipList extends ZipMethods{
     public ZipList() {
         super();
@@ -16,5 +18,15 @@ public class ZipList extends ZipMethods{
         }
         ZipCode output = new ZipCode(zipcode, templat, templong);
         return output;
+    }
+
+    @Override
+    public ArrayList<ZipCode> getZips() {
+        return zips;
+    }
+
+    @Override
+    public void setZips() {
+        zips = readCsv();
     }
 }

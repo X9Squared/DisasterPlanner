@@ -19,6 +19,13 @@ public class ZipCode {
         setZipcode(zip);
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        ZipCode compareZip = null;
+        compareZip = (ZipCode) obj;
+        return (obj.zipcode == this.zipcode && obj.longitude == this.longitude && obj.latitude == this.latitude);
+    }
+
     public double getLatitude() {
         return latitude;
     }

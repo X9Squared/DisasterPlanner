@@ -32,11 +32,7 @@ public abstract class ZipMethods {
     }
 
 
-    public ArrayList<ZipCode> getZips() {
-        return zips;
-    }
+    public abstract ArrayList<ZipCode> getZips();
 
-    public void setZips() {
-        this.zips = readCsv();
-    }
+    public abstract void setZips();
 }
