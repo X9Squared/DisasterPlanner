@@ -1,6 +1,8 @@
 package ZipCore;
 
-public class ZipCode extends ZipList {
+import java.util.ArrayList;
+
+public class ZipCode {
     private int latitude;
     private int longitude;
     private int zipcode;
@@ -40,4 +42,5 @@ public class ZipCode extends ZipList {
     public void setZipcode(int zipcode) {
         this.zipcode = zipcode;
     }
+
 }

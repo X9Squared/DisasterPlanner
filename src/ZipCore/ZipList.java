@@ -6,8 +6,12 @@ import java.util.Scanner;
 
 import static java.lang.System.out;
 
-public abstract class ZipList {
+public class ZipList {
     private ArrayList<ZipCode> zips;
+
+    public ZipList() {
+        zips = new ArrayList<>();
+    }
 
     public static ArrayList<ZipCode> readCsv() {
         ArrayList<ZipCode> output = new ArrayList<>();
