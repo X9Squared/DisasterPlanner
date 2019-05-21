@@ -31,14 +31,17 @@ public abstract class ZipList {
         return output;
     }
 
-    public int searchLat(int zipcode) {
+    public ZipCode searchLoc(int zipcode) {
+        int templat = 0;
+        int templong = 0;
         for (ZipCode zip : zips) {
-
+            if (zip.getZipcode() == zipcode) {
+                templat = zip.getLatitude();
+                templong = zip.getLongitude();
+            }
         }
-    }
-
-    public int searchLong() {
-        return 0;
+        ZipCode output = new ZipCode(zipcode, templat, templong);
+        return output;
     }
 
     public ArrayList<ZipCode> getZips() {
