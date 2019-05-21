@@ -11,4 +11,10 @@ public class ZipCode extends ZipList {
         zipcode = zip;
     }
 
+    public ZipCode(int zip, int lat, int lon) {
+        latitude = lat;
+        longitude = lon;
+        zipcode = zip;
+    }
+
 }
