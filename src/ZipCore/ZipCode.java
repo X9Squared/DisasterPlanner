@@ -1,7 +1,5 @@
 package ZipCore;
 
-import java.util.ArrayList;
-
 public class ZipCode {
     private double latitude;
     private double longitude;
@@ -21,9 +19,7 @@ public class ZipCode {
 
     @Override
     public boolean equals(Object obj) {
-        ZipCode compareZip = null;
-        compareZip = (ZipCode) obj;
-        return (obj.zipcode == this.zipcode && obj.longitude == this.longitude && obj.latitude == this.latitude);
+        return (((ZipCode) obj).getZipcode() == this.zipcode && ((ZipCode) obj).getLongitude() == this.longitude && ((ZipCode) obj).getLatitude() == this.latitude);
     }
 
     public double getLatitude() {

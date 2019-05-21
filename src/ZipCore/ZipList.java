@@ -2,7 +2,7 @@ package ZipCore;
 
 import java.util.ArrayList;
 
-public class ZipList extends ZipMethods{
+public class ZipList extends ZipMethods {
     public ZipList() {
         super();
     }
