@@ -1,10 +1,11 @@
 package UserClasses;
 
+import ZipCore.ZipCode;
+
 public class Survivor implements User {
-    private int zip;
     private String name;
     private int id;
-    private int[] location;
+    private ZipCode location;
     private int age;
     private boolean satisfied;
     private String need;
