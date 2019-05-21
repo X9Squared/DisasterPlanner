@@ -7,7 +7,7 @@ import java.util.Scanner;
 import static java.lang.System.out;
 
 public abstract class ZipList {
-    public ArrayList<ZipCode> zips;
+    private ArrayList<ZipCode> zips;
 
     public static ArrayList<ZipCode> readCsv() {
         ArrayList<ZipCode> output = new ArrayList<>();
@@ -32,10 +32,18 @@ public abstract class ZipList {
     }
 
     public int searchLat() {
-
+        return 0;
     }
 
     public int searchLong() {
+        return 0;
+    }
 
+    public ArrayList<ZipCode> getZips() {
+        return zips;
+    }
+
+    public void setZips() {
+        this.zips = readCsv();
     }
 }
