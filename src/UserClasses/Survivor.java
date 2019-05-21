@@ -1,6 +1,7 @@
 package UserClasses;
 
 import ZipCore.ZipCode;
+import ZipCore.ZipList;
 
 public class Survivor implements User {
     private String name;
@@ -10,6 +11,7 @@ public class Survivor implements User {
     private boolean satisfied;
     private String need;
     private String medical;
+    private ZipList zips;
 
     public Survivor() {
         name = "Tim";
@@ -19,6 +21,7 @@ public class Survivor implements User {
         satisfied = false;
         need = "Just a hug";
         medical = "Requires hug treatment";
+        zips = new ZipList();
     }
 
     public Survivor(int z, String n, int i, ZipCode loc, int age, boolean s, String req, String med) {
@@ -29,6 +32,7 @@ public class Survivor implements User {
         satisfied = s;
         need = req;
         medical = med;
+        zips = new ZipList();
     }
 
 
