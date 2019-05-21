@@ -15,7 +15,7 @@ public abstract class ZipList {
         try {
             crawler = new Scanner(new File("Assets/uszips.csv"));
         } catch (java.io.FileNotFoundException e) {
-            out.println("Cannot find zipcode database, check paths:" + e);
+            out.println("Cannot find zip code database, check paths:" + e);
             return null;
         }
         while (crawler.hasNextLine()) {
@@ -31,8 +31,10 @@ public abstract class ZipList {
         return output;
     }
 
-    public int searchLat() {
-        return 0;
+    public int searchLat(int zipcode) {
+        for (ZipCode zip : zips) {
+
+        }
     }
 
     public int searchLong() {
