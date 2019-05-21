@@ -2,6 +2,7 @@ package UserClasses;
 
 import ZipCore.ZipCode;
 import ZipCore.ZipList;
+import ZipCore.ZipMethods;
 
 public class Survivor implements User {
     private String name;
