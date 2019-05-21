@@ -25,15 +25,15 @@ public class ZipList {
         while (crawler.hasNextLine()) {
             String line = crawler.nextLine();
             String[] splitLine = line.split(",");
-            ZipCode tempZip = new ZipCode(Integer.parseInt(splitLine[0]),Double.parseDouble(splitLine[1]),Double.parseDouble(splitLine[2]));
+            ZipCode tempZip = new ZipCode(Integer.parseInt(splitLine[0]), Double.parseDouble(splitLine[1]), Double.parseDouble(splitLine[2]));
             output.add(tempZip);
         }
         return output;
     }
 
     public ZipCode searchLoc(int zipcode) {
-        int templat = 0;
-        int templong = 0;
+        double templat = 0;
+        double templong = 0;
         for (ZipCode zip : zips) {
             if (zip.getZipcode() == zipcode) {
                 templat = zip.getLatitude();
