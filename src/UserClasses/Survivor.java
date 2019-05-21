@@ -12,18 +12,16 @@ public class Survivor implements User {
     private String medical;
 
     public Survivor() {
-        zip = 92130;
         name = "Tim";
         id = 0000;
-        location = new int[]{500, 500};
+        location = new ZipCode(92130);
         age = 25;
         satisfied = false;
         need = "Just a hug";
         medical = "Requires hug treatment";
     }
 
-    public Survivor(int z, String n, int i, int[] loc, int age, boolean s, String req, String med) {
-        zip = z;
+    public Survivor(int z, String n, int i, ZipCode loc, int age, boolean s, String req, String med) {
         name = n;
         id = i;
         location = loc;
@@ -34,10 +32,13 @@ public class Survivor implements User {
     }
 
 
-    @Override
-    public int[] setLoc(int zip) {
+    public ZipCode getLocation(int zip) {
         return location;
-        //CSV read and assign of latlong from zip code, see OpenCSV
+    }
+
+    @Override
+    public ZipCode setLoc(int zip) {
+        return null;
     }
 
     @Override

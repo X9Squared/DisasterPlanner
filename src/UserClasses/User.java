@@ -1,7 +1,9 @@
 package UserClasses;
 
+import ZipCore.ZipCode;
+
 public interface User {
-    public abstract int[] setLoc(int zip);
+    public abstract ZipCode setLoc(int zip);
 
     public abstract int getAge();
 

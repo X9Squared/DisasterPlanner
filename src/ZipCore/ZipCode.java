@@ -5,9 +5,9 @@ public class ZipCode extends ZipList {
     int longitude;
     int zipcode;
 
-    public ZipCode(int lat, int lo, int zip) {
-        latitude = lat;
-        longitude = lo;
+    public ZipCode(int zip) {
+        latitude = 0;
+        longitude = 0;
         zipcode = zip;
     }
 
