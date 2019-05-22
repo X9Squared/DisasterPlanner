@@ -25,7 +25,7 @@ public class ProviderList {
         this.providers = providers;
     }
 
-    public String searchClosest(String need, ZipCode zip) {
+    public String searchClosestProvider(String need, ZipCode zip) {
         double minDistance = Double.MAX_VALUE;
         boolean found = false;
         Provider closestProv = new Provider();
