@@ -45,7 +45,6 @@ public class Survivor implements User {
         return null;
     }
 
-    @Override
     public int getAge() {
         return age;
     }

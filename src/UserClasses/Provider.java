@@ -17,7 +17,6 @@ public class Provider implements User {
         location = new ZipCode(92130);
         setOutofstock(false);
         setService("Literally ANYTHING");
-        zips = new ZipList();
     }
 
     public Provider(int z, String n, int i, ZipCode loc, int age, boolean s, String serv, String med) {
@@ -26,7 +25,6 @@ public class Provider implements User {
         location = loc;
         setOutofstock(s);
         setService(serv);
-        zips = new ZipList();
     }
 
     //Set and get methods (integrated ZipCore at a later date)

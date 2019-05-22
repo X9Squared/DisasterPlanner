@@ -13,5 +13,8 @@ public class tester {
         }
         ZipCode me = zippos.searchLoc(92130);
         out.println(me);
+        ZipCode you = zippos.searchLoc(92014);
+        out.println(you);
+        out.println(me.calcDistance(you));
     }
 }
