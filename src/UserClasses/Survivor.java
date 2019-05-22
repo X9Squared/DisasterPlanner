@@ -18,8 +18,8 @@ public class Survivor implements User {
         id = 0000;
         location = new ZipCode(92130);
         age = 25;
-        satisfied = false;
-        need = "Just a hug";
+        setSatisfied(false);
+        setNeed("Just a hug");
         medical = "Requires hug treatment";
         zips = new ZipList();
     }
@@ -29,8 +29,8 @@ public class Survivor implements User {
         id = i;
         location = loc;
         this.age = age;
-        satisfied = s;
-        need = req;
+        setSatisfied(s);
+        setNeed(req);
         medical = med;
         zips = new ZipList();
     }
@@ -57,5 +57,21 @@ public class Survivor implements User {
     @Override
     public void setId(int newId) {
         this.id = newId;
+    }
+
+    public boolean isSatisfied() {
+        return satisfied;
+    }
+
+    public void setSatisfied(boolean satisfied) {
+        this.satisfied = satisfied;
+    }
+
+    public String getNeed() {
+        return need;
+    }
+
+    public void setNeed(String need) {
+        this.need = need;
     }
 }

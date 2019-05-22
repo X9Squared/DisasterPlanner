@@ -10,8 +10,21 @@ public class SurvivorList {
     private ArrayList<Survivor> survivors;
     private ZipList zips;
 
-    public ArrayList<String> searchClosetSurvivors(String need, ZipCode zip) {
+    public ArrayList<String> searchClosestSurvivors(String service, ZipCode zip, double threshhold) {
         ArrayList<String> output = new ArrayList<>();
+        boolean found = false;
+        Provider closestProv = new Provider();
+        for (Survivor surv : survivors) {
+            if (surv.().equals(service)) {
+                found = true;
+                ZipCode temp = zips.searchLoc(zip.getZipcode());
+                double tempDist = temp.calcDistance(zip);
+                if (tempDist < minDistance) {
+                    minDistance = tempDist;
+                    closestProv = prov;
+                }
+            }
+        }
         return output;
     }
 
