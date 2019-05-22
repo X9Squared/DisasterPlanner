@@ -9,15 +9,14 @@ public class Provider implements User {
     private ZipCode location;
     private boolean outofstock;
     private String service;
-    private ZipList zips;
 
     //Constructors
     public Provider() {
         name = "Wal-Mart";
         id = 0000;
         location = new ZipCode(92130);
-        outofstock = false;
-        service = "Literally ANYTHING";
+        setOutofstock(false);
+        setService("Literally ANYTHING");
         zips = new ZipList();
     }
 
@@ -25,8 +24,8 @@ public class Provider implements User {
         name = n;
         id = i;
         location = loc;
-        outofstock = s;
-        service = req;
+        setOutofstock(s);
+        setService(serv);
         zips = new ZipList();
     }
 
@@ -49,5 +48,20 @@ public class Provider implements User {
     public void setId(int newId) {
         this.id = newId;
     }
-}
+
+    public boolean isOutofstock() {
+        return outofstock;
+    }
+
+    public void setOutofstock(boolean outofstock) {
+        this.outofstock = outofstock;
+    }
+
+    public String getService() {
+        return service;
+    }
+
+    public void setService(String service) {
+        this.service = service;
+    }
 }
