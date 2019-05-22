@@ -12,7 +12,7 @@ public class Survivor implements User {
     private String need;
     private String medical;
     private ZipList zips;
-
+    //Constructors
     public Survivor() {
         name = "Tim";
         id = 0000;
@@ -35,7 +35,7 @@ public class Survivor implements User {
         zips = new ZipList();
     }
 
-
+    //Set and get methods (integrated ZipCore at a later date)
     public ZipCode getLocation(int zip) {
         return location;
     }

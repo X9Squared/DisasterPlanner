@@ -4,7 +4,7 @@ public class ZipCode {
     private double latitude;
     private double longitude;
     private int zipcode;
-
+    //Constructors
     public ZipCode(int zip) {
         setLatitude(0);
         setLongitude(0);
@@ -16,12 +16,12 @@ public class ZipCode {
         setLongitude(lon);
         setZipcode(zip);
     }
-
+    //Equals method override
     @Override
     public boolean equals(Object obj) {
         return (((ZipCode) obj).getZipcode() == this.zipcode && ((ZipCode) obj).getLongitude() == this.longitude && ((ZipCode) obj).getLatitude() == this.latitude);
     }
-
+    //Setters and getters
     public double getLatitude() {
         return latitude;
     }

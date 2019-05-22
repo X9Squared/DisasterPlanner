@@ -6,7 +6,7 @@ public class ZipList extends ZipMethods {
     public ZipList() {
         super();
     }
-
+    //Searching algo, simple loop through - could be changed to binary search at a later date.
     public ZipCode searchLoc(int zipcode) {
         double templat = 0;
         double templong = 0;
