@@ -28,7 +28,6 @@ ReadCSV method, and abstract methods setting up the search and get/setters for Z
 ## USER INTERFACE/PACKAGES
 JFrame with buttons, input text dialogs, and images (of Google Maps, if packages allow, if not lat-long will be used).
 Zip Code database for lat-long coordinates
-CSV reader package for zip codes and lat-long conversion.
 
 ## DATA STORAGE DETAILS
 CSV will store int/double data depending on the CSV chosen for conversion.
