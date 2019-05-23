@@ -4,28 +4,26 @@ In the wake of a natural disaster like a severe thunderstorm, hurricane, or othe
 ## IMPLEMENTED CLASSES/INTERFACES
 User Interface -
 Location methods, name/age getters and setters, setters for notes and survivor id identification methods.
-Survivor Class - Has A:
+Survivor - Has A:
 Location, age/related medical information, and specific needs that are matched with provider class in later methods, boolean Satisfied, Survivor ID. Implements User interface.
-Provider Class - Has A:
+Provider - Has A:
 Location, service provided, clarifying information (notes, etc. ), stock of service information, boolean Exhausted, Provider ID. Implements User interface.
 ProviderList - Has A:
-ArrayList of Providers, methods to get, set, and edit the list.
+ArrayList of Providers, methods to get, set, and edit the list, and matching methods with Survivor need/location inputs.
 SurvivorList - Has A:
 Arraylist of Providers, methods to get, set, and edit the list.
-Match Class - Has A:
-Methods for matching Survivor to Provider/Provider to Survivor, which include Location-getting methods, matching methods through ProviderList/SurvivorList.
-DisasterEval Class - Has A:
-Methods to loop through provider and survivor to check satisfied/exhausted counts, overall disaster level from 1-5. Abstract, extended by SurvivorEval and ProviderEval.
-SurvivorEval/ProviderEval
-Provides an output of the satisfied/exhausted counts of all survivors and providers to evaluate the severity of a natural disaster from 1 - 5
+DisasterEval - Has A:
+Methods to loop through provider and survivor to check satisfied/exhausted counts, overall disaster level from 1-5. Abstract, all methods static.
 PrioritySurvivor - Extends Survivor - Has A:
-(extended), notes for priority, boolean priority.
+(extended), notes for priority, int priorityLevel.
 PriorityProvider - Extends Provider - Has A:
-(extended), notes for priority, boolean priority.
-
-
-
-
+(extended), notes for priority, int priorityLevel.
+ZipCode - Has A:
+Stores zip information (code, lat/long) for easier access without index shenanigans, with a calculateDistance method.
+ZipList - Has A:
+List of ZipCode objects as taken from the csv, with matching methods to get lat/long when searching. Extends ZipMethods.
+ZipMethods - Has A:
+ReadCSV method, and abstract methods setting up the search and get/setters for ZipList. Abstract.
 
 ## USER INTERFACE/PACKAGES
 JFrame with buttons, input text dialogs, and images (of Google Maps, if packages allow, if not lat-long will be used).
