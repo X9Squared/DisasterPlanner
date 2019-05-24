@@ -3,12 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+import UserClasses.*;
+
 /**
  *
  * @author wangj1701
  */
 public class Runner extends javax.swing.JFrame {
-
+    private SurvivorList survivors;
+    private ProviderList providers;
     /**
      * Creates new form Runner
      */

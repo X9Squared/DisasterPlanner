@@ -15,22 +15,22 @@ public class Survivor implements User {
     //Constructors
     public Survivor() {
         name = "Tim";
-        id = 0000;
+        setId(0000);
         location = new ZipCode(92130);
         age = 25;
-        satisfied = false;
-        need = "Just a hug";
+        setSatisfied(false);
+        setNeed("Just a hug");
         notes = "Requires hug treatment";
         zips = new ZipList();
     }
 
     public Survivor(int z, String n, int i, ZipCode loc, int age, boolean s, String req, String not) {
         name = n;
-        id = i;
+        setId(i);
         location = loc;
         this.age = age;
-        satisfied = s;
-        need = req;
+        setSatisfied(s);
+        setNeed(req);
         notes = not;
         zips = new ZipList();
     }
@@ -57,5 +57,25 @@ public class Survivor implements User {
     @Override
     public void setId(int newId) {
         this.id = newId;
+    }
+
+    public String getNeed() {
+        return need;
+    }
+
+    public void setNeed(String need) {
+        this.need = need;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public boolean isSatisfied() {
+        return satisfied;
+    }
+
+    public void setSatisfied(boolean satisfied) {
+        this.satisfied = satisfied;
     }
 }
