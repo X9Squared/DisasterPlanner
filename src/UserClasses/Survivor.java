@@ -10,7 +10,7 @@ public class Survivor implements User {
     private int age;
     private boolean satisfied;
     private String need;
-    private String medical;
+    private String notes;
     private ZipList zips;
     //Constructors
     public Survivor() {
@@ -18,20 +18,20 @@ public class Survivor implements User {
         id = 0000;
         location = new ZipCode(92130);
         age = 25;
-        setSatisfied(false);
-        setNeed("Just a hug");
-        medical = "Requires hug treatment";
+        satisfied = false;
+        need = "Just a hug";
+        notes = "Requires hug treatment";
         zips = new ZipList();
     }
 
-    public Survivor(int z, String n, int i, ZipCode loc, int age, boolean s, String req, String med) {
+    public Survivor(int z, String n, int i, ZipCode loc, int age, boolean s, String req, String not) {
         name = n;
         id = i;
         location = loc;
         this.age = age;
-        setSatisfied(s);
-        setNeed(req);
-        medical = med;
+        satisfied = s;
+        need = req;
+        notes = not;
         zips = new ZipList();
     }
 
@@ -57,21 +57,5 @@ public class Survivor implements User {
     @Override
     public void setId(int newId) {
         this.id = newId;
-    }
-
-    public boolean isSatisfied() {
-        return satisfied;
-    }
-
-    public void setSatisfied(boolean satisfied) {
-        this.satisfied = satisfied;
-    }
-
-    public String getNeed() {
-        return need;
-    }
-
-    public void setNeed(String need) {
-        this.need = need;
     }
 }
