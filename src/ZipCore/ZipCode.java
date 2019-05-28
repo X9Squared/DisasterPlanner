@@ -29,9 +29,8 @@ public class ZipCode {
             a = sin²(Δφ/2) + cos φ1 ⋅ cos φ2 ⋅ sin²(Δλ/2)
             c = 2 ⋅ atan2( √a, √(1−a) )
             d = R ⋅ c */
-        //TODO: Fix inaccuracy of the calculation - about 200km off, not sure why
         double a = (Math.sin(deltalat / 2) * Math.sin(deltalat / 2))
-                + (Math.cos(Math.toRadians(lat1)) * Math.cos(Math.toRadians(lat2))
+                + (Math.cos(lat1) * Math.cos(lat2)
                 * Math.sin(deltalong / 2) * Math.sin(deltalong / 2));
         double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
         double distance = R * c; // convert to meters
