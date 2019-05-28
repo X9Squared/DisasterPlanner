@@ -13,6 +13,7 @@ public class Survivor implements User {
     private String notes;
     private ZipList zips;
     //Constructors
+
     public Survivor() {
         name = "Tim";
         setId(0000);
@@ -24,7 +25,7 @@ public class Survivor implements User {
         zips = new ZipList();
     }
 
-    public Survivor(int z, String n, int i, ZipCode loc, int age, boolean s, String req, String not) {
+    public Survivor(String n, int i, ZipCode loc, int age, boolean s, String req, String not) {
         name = n;
         setId(i);
         location = loc;

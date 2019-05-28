@@ -5,6 +5,7 @@
  */
 
 import UserClasses.*;
+import java.awt.event.ActionListener;
 
 /**
  *
@@ -96,11 +97,6 @@ public class Runner extends javax.swing.JFrame {
         survZipTitle.setText("ZIP CODE");
 
         zipFieldSurv.setText("Enter Zip Code Here");
-        zipFieldSurv.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                zipFieldSurvActionPerformed(evt);
-            }
-        });
 
         needServiceList.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Food", "Water", "Shelter", "Medical Assistance" };
@@ -206,11 +202,6 @@ public class Runner extends javax.swing.JFrame {
         provZipTitle.setText("ZIP CODE");
 
         zipFieldProv.setText("Enter Zip Code Here");
-        zipFieldProv.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                zipFieldProvActionPerformed(evt);
-            }
-        });
 
         provServiceList.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Food", "Water", "Shelter", "Medical Assistance" };
@@ -405,14 +396,6 @@ public class Runner extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void zipFieldSurvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zipFieldSurvActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_zipFieldSurvActionPerformed
-
-    private void zipFieldProvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zipFieldProvActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_zipFieldProvActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -453,78 +436,14 @@ public class Runner extends javax.swing.JFrame {
     private javax.swing.JButton SURVSUBMIT;
     private javax.swing.JSlider ageSlider;
     private javax.swing.JLabel ageTitle;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
-    private javax.swing.JList jList2;
-    private javax.swing.JList jList3;
-    private javax.swing.JList jList4;
-    private javax.swing.JList jList5;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane10;
     private javax.swing.JScrollPane jScrollPane11;
     private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane15;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JScrollPane jScrollPane8;
-    private javax.swing.JScrollPane jScrollPane9;
-    private javax.swing.JSlider jSlider3;
-    private javax.swing.JSlider jSlider4;
-    private javax.swing.JSlider jSlider5;
-    private javax.swing.JSlider jSlider6;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextArea jTextArea3;
-    private javax.swing.JTextArea jTextArea4;
-    private javax.swing.JTextArea jTextArea5;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     private javax.swing.JLabel listDescrip;
     private javax.swing.JTextField nameInputProv;
     private javax.swing.JTextField nameInputSurv;
