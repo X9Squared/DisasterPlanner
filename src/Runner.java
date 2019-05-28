@@ -89,6 +89,11 @@ public class Runner extends javax.swing.JFrame {
         ageTitle.setText("AGE");
 
         SURVSUBMIT.setText("Submit Information/Search");
+        SURVSUBMIT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SURVSUBMITActionPerformed(evt);
+            }
+        });
 
         ageSlider.setMajorTickSpacing(10);
         ageSlider.setPaintLabels(true);
@@ -198,6 +203,11 @@ public class Runner extends javax.swing.JFrame {
         provNameTitle.setText("NAME");
 
         PROVSUBMIT.setText("Submit Information/Search");
+        PROVSUBMIT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PROVSUBMITActionPerformed(evt);
+            }
+        });
 
         provZipTitle.setText("ZIP CODE");
 
@@ -395,6 +405,13 @@ public class Runner extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void SURVSUBMITActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+    }
+    private void PROVSUBMITActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add handling code here:
+    }
 
     /**
      * @param args the command line arguments
