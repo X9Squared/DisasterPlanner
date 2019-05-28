@@ -27,6 +27,6 @@ public class tester {
         provlist.add(prov1);
         out.println(provlist.searchClosestProvider(surv1.getNeed(), surv1.getLocation()));
         out.println(provlist.searchClosestProvider(surv3.getNeed(),surv3.getLocation()));
-        out.println(survlist.searchClosestSurvivors("Food", prov1.getLocation(), 100));
+        out.println(survlist.searchClosestSurvivors("Food", prov1.getLocation(), 1500));
     }
 }

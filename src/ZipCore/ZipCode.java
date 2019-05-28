@@ -1,5 +1,7 @@
 package ZipCore;
 
+import static java.lang.System.out;
+
 public class ZipCode {
     private double latitude;
     private double longitude;
@@ -18,7 +20,7 @@ public class ZipCode {
     }
 
     public double calcDistance (ZipCode target) {
-        final int R = 6371; //Radius of Earth
+        final double R = 6371; //Radius of Earth
         double lat1 = Math.toRadians(this.getLatitude());
         double lat2 = Math.toRadians(target.getLatitude());
         double deltalong = Math.toRadians(target.getLongitude() - this.getLongitude());
@@ -27,9 +29,9 @@ public class ZipCode {
             a = sin²(Δφ/2) + cos φ1 ⋅ cos φ2 ⋅ sin²(Δλ/2)
             c = 2 ⋅ atan2( √a, √(1−a) )
             d = R ⋅ c */
-        double a = Math.sin(deltalat / 2) * Math.sin(deltalat / 2)
-                + Math.cos(Math.toRadians(lat1)) * Math.cos(Math.toRadians(lat2))
-                * Math.sin(deltalong / 2) * Math.sin(deltalong / 2);
+        double a = (Math.sin(deltalat / 2) * Math.sin(deltalat / 2))
+                + (Math.cos(Math.toRadians(lat1)) * Math.cos(Math.toRadians(lat2))
+                * Math.sin(deltalong / 2) * Math.sin(deltalong / 2));
         double c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
         double distance = R * c; // convert to meters
         return distance;

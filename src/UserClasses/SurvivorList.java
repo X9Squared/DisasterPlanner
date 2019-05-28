@@ -22,12 +22,14 @@ public class SurvivorList {
         ArrayList<String> output = new ArrayList<>();
         ArrayList<String> contingency = new ArrayList<>();
         contingency.add("No survivors found within the specified threshold - please try again");
+        ZipCode provLoc = zips.searchLoc(zip.getZipcode());
         boolean found = false;
         for (Survivor surv : survivors) {
             if (surv.getNeed().equals(service)) {
                 found = true;
-                ZipCode temp = zips.searchLoc(zip.getZipcode());
-                double tempDist = temp.calcDistance(zip);
+                double tempDist = provLoc.calcDistance(surv.getLocation());
+                out.println(tempDist);
+                out.println(surv.getLocation());
                 if (tempDist < threshold) {
                     output.add(surv.toString());
                 }
