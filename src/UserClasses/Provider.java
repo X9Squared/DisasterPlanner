@@ -18,7 +18,7 @@ public class Provider implements User {
         setService("Literally ANYTHING");
     }
 
-    public Provider(int z, String n, int i, ZipCode loc, String serv, String not) {
+    public Provider(String n, int i, ZipCode loc, String serv, String not) {
         name = n;
         id = i;
         location = loc;

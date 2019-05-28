@@ -6,6 +6,8 @@ import ZipCore.ZipList;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
+import static java.lang.System.out;
+
 public class SurvivorList {
     private ArrayList<Survivor> survivors;
     private ZipList zips;
@@ -46,5 +48,17 @@ public class SurvivorList {
 
     public void setZips(ZipList zips) {
         this.zips = zips;
+    }
+
+    public void add(Survivor surv) {
+        survivors.add(surv);
+        out.println("added");
+    }
+
+    public void remove(Survivor surv) {
+        if (survivors.contains(surv)) {
+            survivors.remove(surv);
+            out.println("removed");
+        }
     }
 }

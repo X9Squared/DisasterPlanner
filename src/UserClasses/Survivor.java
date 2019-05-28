@@ -11,7 +11,6 @@ public class Survivor implements User {
     private boolean satisfied;
     private String need;
     private String notes;
-    private ZipList zips;
     //Constructors
 
     public Survivor() {
@@ -22,7 +21,6 @@ public class Survivor implements User {
         setSatisfied(false);
         setNeed("Just a hug");
         notes = "Requires hug treatment";
-        zips = new ZipList();
     }
 
     public Survivor(String n, int i, ZipCode loc, int age, boolean s, String req, String not) {
@@ -33,7 +31,6 @@ public class Survivor implements User {
         setSatisfied(s);
         setNeed(req);
         notes = not;
-        zips = new ZipList();
     }
 
     //Set and get methods (integrated ZipCore at a later date)

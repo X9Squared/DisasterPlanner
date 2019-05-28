@@ -7,6 +7,8 @@
 import UserClasses.*;
 import java.awt.event.ActionListener;
 
+import static java.lang.System.out;
+
 /**
  *
  * @author wangj1701
@@ -408,9 +410,11 @@ public class Runner extends javax.swing.JFrame {
 
     private void SURVSUBMITActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
+        out.println("GotClick");
     }
     private void PROVSUBMITActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add handling code here:
+        out.println("GotClick");
     }
 
     /**
