@@ -12,6 +12,12 @@ public class SurvivorList {
     private ArrayList<Survivor> survivors;
     private ZipList zips;
 
+    public SurvivorList() {
+        survivors = new ArrayList<>();
+        zips = new ZipList();
+        zips.setZips();
+    }
+
     public ArrayList<String> searchClosestSurvivors(String service, ZipCode zip, double threshold) {
         ArrayList<String> output = new ArrayList<>();
         ArrayList<String> contingency = new ArrayList<>();
@@ -33,6 +39,7 @@ public class SurvivorList {
             return output;
         }
     }
+
 
     public ArrayList<Survivor> getSurvivors() {
         return survivors;

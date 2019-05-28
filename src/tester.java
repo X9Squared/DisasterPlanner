@@ -22,5 +22,11 @@ public class tester {
         Survivor surv3 = new Survivor("Blitz", 0003, zippos.searchLoc(28026), 18, false, "Water", "N/A");
         Provider prov1 = new Provider("GUBISOFT", 0000, zippos.searchLoc(76020), "Food", "N/A");
         survlist.add(surv1);
+        survlist.add(surv2);
+        survlist.add(surv3);
+        provlist.add(prov1);
+        out.println(provlist.searchClosestProvider(surv1.getNeed(), surv1.getLocation()));
+        out.println(provlist.searchClosestProvider(surv3.getNeed(),surv3.getLocation()));
+        out.println(survlist.searchClosestSurvivors("Food", prov1.getLocation(), 100));
     }
 }

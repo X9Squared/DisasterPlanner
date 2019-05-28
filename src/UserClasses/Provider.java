@@ -27,7 +27,7 @@ public class Provider implements User {
     }
 
     //Set and get methods (integrated ZipCore at a later date)
-    public ZipCode getLocation(int zip) {
+    public ZipCode getLocation() {
         return location;
     }
 
@@ -52,5 +52,10 @@ public class Provider implements User {
 
     public void setService(String service) {
         this.service = service;
+    }
+
+    @Override
+    public String toString() {
+        return name + " " + id + " " + location.getZipcode() + " " +service + " " +notes;
     }
 }

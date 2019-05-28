@@ -13,6 +13,8 @@ public class ProviderList {
 
     public ProviderList() {
         setProviders(new ArrayList<>());
+        zips = new ZipList();
+        zips.setZips();
     }
 
     public void add(Provider temp) {
@@ -56,4 +58,5 @@ public class ProviderList {
             return closestProv.toString();
         }
     }
+
 }

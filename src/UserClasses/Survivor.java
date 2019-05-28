@@ -34,7 +34,7 @@ public class Survivor implements User {
     }
 
     //Set and get methods (integrated ZipCore at a later date)
-    public ZipCode getLocation(int zip) {
+    public ZipCode getLocation() {
         return location;
     }
 
@@ -75,5 +75,10 @@ public class Survivor implements User {
 
     public void setSatisfied(boolean satisfied) {
         this.satisfied = satisfied;
+    }
+
+    @Override
+    public String toString() {
+        return name + " " + id + " " + location.getZipcode() + " " +need + " " +notes;
     }
 }
