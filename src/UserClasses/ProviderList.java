@@ -5,6 +5,8 @@ import ZipCore.ZipList;
 
 import java.util.ArrayList;
 
+import static java.lang.System.out;
+
 public class ProviderList {
     private ArrayList<Provider> providers;
     private ZipList zips;
@@ -15,6 +17,14 @@ public class ProviderList {
 
     public void add(Provider temp) {
         getProviders().add(temp);
+        out.println("added");
+    }
+
+    public void remove(Provider temp) {
+        if (providers.contains(temp)) {
+            providers.remove(temp);
+            out.println("removed");
+        }
     }
 
     public ArrayList<Provider> getProviders() {
