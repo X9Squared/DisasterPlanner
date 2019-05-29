@@ -28,6 +28,7 @@ public class Runner extends javax.swing.JFrame {
         id = 0000;
         survivors = new SurvivorList();
         providers = new ProviderList();
+        zips = new ZipList();
         zips.setZips();
     }
 
@@ -106,8 +107,10 @@ public class Runner extends javax.swing.JFrame {
         });
 
         ageSlider.setMajorTickSpacing(10);
+        ageSlider.setMinorTickSpacing(2);
         ageSlider.setPaintLabels(true);
         ageSlider.setPaintTicks(true);
+        ageSlider.setSnapToTicks(true);
 
         survZipTitle.setText("ZIP CODE");
 
@@ -418,8 +421,8 @@ public class Runner extends javax.swing.JFrame {
 
     private void SURVSUBMITActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-        Survivor temp = new Survivor(nameInputSurv.getText(), id, zips.searchLoc(Integer.parseInt(zipFieldSurv.getText())),
-                (int) ageSlider.getValue(), (String)needServiceList.getSelectedValue(), survNotes.getText());
+        Survivor temp = new Survivor(nameInputSurv.getText(), 5 , zips.searchLoc(Integer.parseInt(zipFieldSurv.getText())),
+                ageSlider.getValue(), (String)needServiceList.getSelectedValue(), survNotes.getText());
         survivors.add(temp);
         nameInputSurv.setText("");
         id+=1;
