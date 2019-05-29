@@ -5,6 +5,8 @@
  */
 
 import UserClasses.*;
+import ZipCore.ZipList;
+
 import java.awt.event.ActionListener;
 
 import static java.lang.System.out;
@@ -14,13 +16,19 @@ import static java.lang.System.out;
  * @author wangj1701
  */
 public class Runner extends javax.swing.JFrame {
+    private int id;
     private SurvivorList survivors;
     private ProviderList providers;
+    private ZipList zips;
     /**
      * Creates new form Runner
      */
     public Runner() {
         initComponents();
+        id = 0000;
+        survivors = new SurvivorList();
+        providers = new ProviderList();
+        zips.setZips();
     }
 
     /**
@@ -410,7 +418,16 @@ public class Runner extends javax.swing.JFrame {
 
     private void SURVSUBMITActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-        out.println("GotClick");
+        Survivor temp = new Survivor(nameInputSurv.getText(), id, zips.searchLoc(Integer.parseInt(zipFieldSurv.getText())),
+                (int) ageSlider.getValue(), (String)needServiceList.getSelectedValue(), survNotes.getText());
+        survivors.add(temp);
+        nameInputSurv.setText("");
+        id+=1;
+        zipFieldSurv.setText("");
+        ageSlider.setValue(0);
+        needServiceList.clearSelection();
+        survNotes.setText("");
+        out.println(temp);
     }
     private void PROVSUBMITActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add handling code here:

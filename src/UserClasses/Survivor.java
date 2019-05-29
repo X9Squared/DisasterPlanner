@@ -23,12 +23,11 @@ public class Survivor implements User {
         notes = "Requires hug treatment";
     }
 
-    public Survivor(String n, int i, ZipCode loc, int age, boolean s, String req, String not) {
+    public Survivor(String n, int i, ZipCode loc, int age, String req, String not) {
         name = n;
         setId(i);
         location = loc;
         this.age = age;
-        setSatisfied(s);
         setNeed(req);
         notes = not;
     }
