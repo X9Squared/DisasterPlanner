@@ -3,6 +3,7 @@ package UserClasses;
 import ZipCore.ZipCode;
 import ZipCore.ZipList;
 
+import java.io.*;
 import java.util.ArrayList;
 
 import static java.lang.System.out;
@@ -26,6 +27,16 @@ public class ProviderList {
         if (providers.contains(temp)) {
             providers.remove(temp);
             out.println("removed");
+        }
+    }
+
+    public void updateList(String datPath) throws IOException {
+        DataInputStream inStream = new DataInputStream(new FileInputStream(datPath));
+        BufferedReader reader = new BufferedReader(new InputStreamReader(inStream));
+        while (reader.ready()) {
+            String line = reader.readLine();
+            String[] splitData = line.split(" ");
+            Provider temp = new Provider();
         }
     }
 

@@ -8,6 +8,7 @@ import UserClasses.*;
 import ZipCore.ZipList;
 
 import java.awt.event.ActionListener;
+import java.io.*;
 
 import static java.lang.System.out;
 
@@ -20,16 +21,20 @@ public class Runner extends javax.swing.JFrame {
     private SurvivorList survivors;
     private ProviderList providers;
     private ZipList zips;
+    private DataOutputStream outputStream;
+    private DataInputStream inputStream;
     /**
      * Creates new form Runner
      */
-    public Runner() {
+    public Runner() throws FileNotFoundException{
         initComponents();
         id = 0000;
         survivors = new SurvivorList();
         providers = new ProviderList();
         zips = new ZipList();
         zips.setZips();
+        inputStream = new DataInputStream(new FileInputStream("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\src\\userDatabase.dat"));
+        outputStream = new DataOutputStream(new FileOutputStream("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\src\\userDatabase.dat"));
     }
 
     /**
@@ -102,7 +107,7 @@ public class Runner extends javax.swing.JFrame {
         SURVSUBMIT.setText("Submit Information/Search");
         SURVSUBMIT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SURVSUBMITActionPerformed(evt);
+                    SURVSUBMITActionPerformed(evt);
             }
         });
 
@@ -419,7 +424,7 @@ public class Runner extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void SURVSUBMITActionPerformed(java.awt.event.ActionEvent evt) {
+    private void SURVSUBMITActionPerformed(java.awt.event.ActionEvent evt)  {
         // TODO add your handling code here:
         Survivor temp = new Survivor(nameInputSurv.getText(), 5 , zips.searchLoc(Integer.parseInt(zipFieldSurv.getText())),
                 ageSlider.getValue(), (String)needServiceList.getSelectedValue(), survNotes.getText());
@@ -430,7 +435,11 @@ public class Runner extends javax.swing.JFrame {
         ageSlider.setValue(0);
         needServiceList.clearSelection();
         survNotes.setText("");
-        out.println(temp);
+        try {
+            outputStream.writeUTF("hazelnat \n");
+        } catch (IOException e) {
+            out.println("Exception thrown: " + e);
+        }
     }
     private void PROVSUBMITActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add handling code here:
@@ -467,7 +476,11 @@ public class Runner extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Runner().setVisible(true);
+                try {
+                    new Runner().setVisible(true);
+                } catch (IOException e) {
+                    out.println(e);
+                }
             }
         });
     }
