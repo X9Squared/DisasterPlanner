@@ -33,10 +33,13 @@ public class ProviderList {
     public void updateList(String datPath) throws IOException {
         DataInputStream inStream = new DataInputStream(new FileInputStream(datPath));
         BufferedReader reader = new BufferedReader(new InputStreamReader(inStream));
+        int tick = 0;
         while (reader.ready()) {
-            String line = reader.readLine();
-            String[] splitData = line.split(" ");
-            Provider temp = new Provider();
+            if (tick % 2 == 1) {
+                String line = reader.readLine();
+                String[] splitData = line.split("_");
+                Provider temp = new Provider();
+            }
         }
     }
 

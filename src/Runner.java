@@ -7,7 +7,6 @@
 import UserClasses.*;
 import ZipCore.ZipList;
 
-import java.awt.event.ActionListener;
 import java.io.*;
 
 import static java.lang.System.out;
@@ -21,8 +20,10 @@ public class Runner extends javax.swing.JFrame {
     private SurvivorList survivors;
     private ProviderList providers;
     private ZipList zips;
-    private DataOutputStream outputStream;
-    private DataInputStream inputStream;
+    private DataOutputStream provOutput;
+    private DataInputStream provInput;
+    private DataOutputStream survOutput;
+    private DataInputStream survInput;
     /**
      * Creates new form Runner
      */
@@ -33,8 +34,10 @@ public class Runner extends javax.swing.JFrame {
         providers = new ProviderList();
         zips = new ZipList();
         zips.setZips();
-        inputStream = new DataInputStream(new FileInputStream("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\src\\userDatabase.dat"));
-        outputStream = new DataOutputStream(new FileOutputStream("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\src\\userDatabase.dat"));
+        provInput = new DataInputStream(new FileInputStream("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\src\\providerDatabase.dat"));
+        provOutput = new DataOutputStream(new FileOutputStream("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\src\\providerDatabase.dat"));
+        survInput = new DataInputStream(new FileInputStream("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\src\\survivorDatabase.dat"));
+        survOutput = new DataOutputStream(new FileOutputStream("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\src\\survivorDatabase.dat"));
     }
 
     /**
@@ -436,7 +439,7 @@ public class Runner extends javax.swing.JFrame {
         needServiceList.clearSelection();
         survNotes.setText("");
         try {
-            outputStream.writeUTF("hazelnat \n");
+            provOutput.writeUTF("wegotitboys \n");
         } catch (IOException e) {
             out.println("Exception thrown: " + e);
         }

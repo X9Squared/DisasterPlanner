@@ -56,6 +56,6 @@ public class Provider implements User {
 
     @Override
     public String toString() {
-        return name + " " + id + " " + location.getZipcode() + " " +service + " " +notes;
+        return name + "_" + id + "_" + location.getZipcode() + "_" +service + "_" +notes;
     }
 }
