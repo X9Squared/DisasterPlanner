@@ -4,7 +4,6 @@ import ZipCore.ZipCode;
 import ZipCore.ZipList;
 
 import java.io.*;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 import static java.lang.System.out;
@@ -19,6 +18,7 @@ public class SurvivorList {
         zips.setZips();
     }
 
+    //TODO: STILL NEEDS TESTING
     public void updateList(String datPath) throws IOException {
         DataInputStream inStream = new DataInputStream(new FileInputStream(datPath));
         BufferedReader reader = new BufferedReader(new InputStreamReader(inStream));
@@ -27,8 +27,8 @@ public class SurvivorList {
             if (tick % 2 == 1) {
                 String line = reader.readLine();
                 String[] splitData = line.split("_");
-                Survivor temp = new Survivor(splitData[0],Integer.parseInt(splitData[2]),
-                        zips.searchLoc(Integer.parseInt(splitData[3])),Integer.parseInt(splitData[1]), splitData[4], splitData[5]);
+                Survivor temp = new Survivor(splitData[0], Integer.parseInt(splitData[2]),
+                        zips.searchLoc(Integer.parseInt(splitData[3])), Integer.parseInt(splitData[1]), splitData[4], splitData[5]);
                 add(temp);
             }
             ++tick;

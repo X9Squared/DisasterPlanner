@@ -1,7 +1,7 @@
 package UserClasses;
 //TODO: ADD COMMENTS
+
 import ZipCore.ZipCode;
-import ZipCore.ZipList;
 
 public class Provider implements User {
     private String name;
@@ -56,6 +56,6 @@ public class Provider implements User {
 
     @Override
     public String toString() {
-        return name + "_" + id + "_" + location.getZipcode() + "_" +service + "_" +notes;
+        return name + "_" + id + "_" + location.getZipcode() + "_" + service + "_" + notes;
     }
 }

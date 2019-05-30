@@ -1,7 +1,6 @@
 package UserClasses;
 
 import ZipCore.ZipCode;
-import ZipCore.ZipList;
 
 public class Survivor implements User {
     private String name;
@@ -78,6 +77,6 @@ public class Survivor implements User {
 
     @Override
     public String toString() {
-        return name + "_" + age + "_" + id + "_" + location.getZipcode() + "_" +need + "_" +notes;
+        return name + "_" + age + "_" + id + "_" + location.getZipcode() + "_" + need + "_" + notes;
     }
 }
