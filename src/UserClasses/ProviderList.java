@@ -38,8 +38,11 @@ public class ProviderList {
             if (tick % 2 == 1) {
                 String line = reader.readLine();
                 String[] splitData = line.split("_");
-                Provider temp = new Provider();
+                Provider temp = new Provider(splitData[0],Integer.parseInt(splitData[1]),
+                        zips.searchLoc(Integer.parseInt(splitData[2])),splitData[3], splitData[4]);
+                add(temp);
             }
+            ++tick;
         }
     }
 
