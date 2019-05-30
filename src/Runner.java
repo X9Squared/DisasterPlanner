@@ -453,7 +453,7 @@ public class Runner extends javax.swing.JFrame {
         needServiceList.clearSelection();
         survNotes.setText("");
         try {
-            provOutput.writeUTF("wegotitboys \n");
+            provOutput.writeUTF(temp.toString() + "\n");
         } catch (IOException e) {
             out.println("Exception thrown: " + e);
         }

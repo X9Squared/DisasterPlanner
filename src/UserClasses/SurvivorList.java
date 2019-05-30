@@ -87,4 +87,13 @@ public class SurvivorList {
             out.println("removed");
         }
     }
+
+    @Override
+    public String toString() {
+        String output = "";
+        for (Survivor surv  : survivors) {
+            output += surv.toString() + "\n";
+        }
+        return output;
+    }
 }

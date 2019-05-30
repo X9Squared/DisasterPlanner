@@ -77,4 +77,12 @@ public class ProviderList {
         }
     }
 
+    @Override
+    public String toString() {
+        String output = "";
+        for (Provider prov : providers) {
+            output += prov.toString() + "\n";
+        }
+        return output;
+    }
 }
