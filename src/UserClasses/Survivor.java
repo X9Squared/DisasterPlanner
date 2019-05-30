@@ -78,6 +78,6 @@ public class Survivor implements User {
 
     @Override
     public String toString() {
-        return name + " " + age + " " + id + " " + location.getZipcode() + " " +need + " " +notes;
+        return name + "_" + age + "_" + id + "_" + location.getZipcode() + "_" +need + "_" +notes;
     }
 }
