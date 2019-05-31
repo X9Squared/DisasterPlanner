@@ -29,6 +29,16 @@ public class Runner extends javax.swing.JFrame {
      * Creates new form Runner
      */
     public Runner() throws FileNotFoundException, IOException {
+        try {
+            getSurvivors().updateList("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\survivorDatabase.dat");
+        } catch (IOException e) {
+            out.println(e);
+        }
+        try {
+            getProviders().updateList("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\providerDatabase.dat");
+        } catch (IOException e) {
+            out.println(e);
+        }
         initComponents();
         id = 0000;
         setSurvivors(new SurvivorList());
@@ -478,11 +488,6 @@ public class Runner extends javax.swing.JFrame {
             out.println("Exception thrown: ");
             e.printStackTrace();
         }
-        try {
-            getProviders().updateList("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\providerDatabase.dat");
-        } catch (IOException e) {
-            out.println(e);
-        }
         String outputString = "";
         for (String survs : getSurvivors().searchClosestSurvivors(temp.getService(), temp.getLocation(), 100)) {
             outputString += survs.toString() + " | ";
@@ -522,11 +527,6 @@ public class Runner extends javax.swing.JFrame {
             public void run() {
                 try {
                     new Runner().setVisible(true);
-                    try {
-                        getSurvivors().updateList("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\survivorDatabase.dat");
-                    } catch (IOException e) {
-                        out.println(e);
-                    }
                 } catch (IOException e) {
                     out.println(e);
                 }
