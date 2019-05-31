@@ -4,12 +4,10 @@
  * and open the template in the editor.
  */
 
-import UserClasses.Provider;
 import UserClasses.ProviderList;
 import UserClasses.Survivor;
 import UserClasses.SurvivorList;
 import ZipCore.ZipList;
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 
 import java.io.*;
 
@@ -23,21 +21,25 @@ public class Runner extends javax.swing.JFrame {
     private SurvivorList survivors;
     private ProviderList providers;
     private ZipList zips;
-    private BufferedWriter provOutput;
-    private BufferedWriter survOutput;
+    private DataOutputStream provOutput;
+    private DataInputStream provInput;
+    private DataOutputStream survOutput;
+    private DataInputStream survInput;
 
     /**
      * Creates new form Runner
      */
-    public Runner() throws FileNotFoundException, IOException {
+    public Runner() throws FileNotFoundException {
         initComponents();
         id = 0000;
         survivors = new SurvivorList();
         providers = new ProviderList();
         zips = new ZipList();
         zips.setZips();
-        provOutput = new BufferedWriter(new FileWriter("providerDatabase.dat"));
-        survOutput = new BufferedWriter(new FileWriter("survivorDatabase.dat"));
+        provInput = new DataInputStream(new FileInputStream("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\src\\providerDatabase.dat"));
+        provOutput = new DataOutputStream(new FileOutputStream("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\src\\providerDatabase.dat"));
+        survInput = new DataInputStream(new FileInputStream("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\src\\survivorDatabase.dat"));
+        survOutput = new DataOutputStream(new FileOutputStream("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\src\\survivorDatabase.dat"));
     }
 
     /**
@@ -451,39 +453,15 @@ public class Runner extends javax.swing.JFrame {
         needServiceList.clearSelection();
         survNotes.setText("");
         try {
-            survOutput.write(temp.toString());
-            survOutput.newLine();
+            provOutput.writeUTF(temp.toString() + "\n");
         } catch (IOException e) {
             out.println("Exception thrown: " + e);
-        }
-        try {
-            survivors.updateList("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\survivorDatabase.dat");
-        } catch (IOException e) {
-            out.println(e);
         }
     }
 
     private void PROVSUBMITActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add handling code here:
-        Provider temp = new Provider(nameInputProv.getText(), 5, zips.searchLoc(Integer.parseInt(zipFieldProv.getText())),
-                (String) provServiceList.getSelectedValue(), provNotes.getText());
-        providers.add(temp);
-        nameInputProv.setText("");
-        id += 1;
-        zipFieldProv.setText("");
-        provServiceList.clearSelection();
-        provNotes.setText("");
-        try {
-            provOutput.write(temp.toString());
-            provOutput.newLine();
-        } catch (IOException e) {
-            out.println("Exception thrown: " + e);
-        }
-        try {
-            providers.updateList("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\providerDatabase.dat");
-        } catch (IOException e) {
-            out.println(e);
-        }
+        out.println("GotClick");
     }
 
     /**

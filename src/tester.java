@@ -6,6 +6,7 @@ import ZipCore.ZipList;
 import ZipCore.ZipMethods;
 import ZipCore.ZipCode;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 import static java.lang.System.out;
@@ -16,7 +17,6 @@ public class tester {
         SurvivorList survlist = new SurvivorList();
         ProviderList provlist = new ProviderList();
         zippos.setZips();
-        Scanner input = new Scanner(System.in);
         Survivor surv1 = new Survivor("Ash", 0001, zippos.searchLoc(92130), 17, "Medical", "N/A");
         Survivor surv2 = new Survivor("Jager", 0002, zippos.searchLoc(38870), 16, "Food", "N/A");
         Survivor surv3 = new Survivor("Blitz", 0003, zippos.searchLoc(28026), 18, "Water", "N/A");
@@ -25,8 +25,14 @@ public class tester {
         survlist.add(surv2);
         survlist.add(surv3);
         provlist.add(prov1);
+        try {
+            survlist.updateList("D:\\School\\AP CSA\\NaturalDisasterPlanner\\src\\survivorDatabase.dat");
+        } catch (IOException e) {
+            out.println(e);
+        }
         out.println(provlist.searchClosestProvider(surv1.getNeed(), surv1.getLocation()));
-        out.println(provlist.searchClosestProvider(surv3.getNeed(),surv3.getLocation()));
+        out.println(provlist.searchClosestProvider(surv3.getNeed(), surv3.getLocation()));
         out.println(survlist.searchClosestSurvivors("Food", prov1.getLocation(), 1500));
+        out.println(survlist);
     }
 }

@@ -30,7 +30,6 @@ public class ProviderList {
         }
     }
 
-    //TODO: STILL NEEDS TESTING
     public void updateList(String datPath) throws IOException {
         DataInputStream inStream = new DataInputStream(new FileInputStream(datPath));
         BufferedReader reader = new BufferedReader(new InputStreamReader(inStream));
@@ -77,4 +76,12 @@ public class ProviderList {
         }
     }
 
+    @Override
+    public String toString() {
+        String output = "";
+        for (Provider prov : providers) {
+            output += prov.toString() + "\n";
+        }
+        return output;
+    }
 }

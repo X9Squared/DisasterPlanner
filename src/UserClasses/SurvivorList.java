@@ -18,7 +18,6 @@ public class SurvivorList {
         zips.setZips();
     }
 
-    //TODO: STILL NEEDS TESTING
     public void updateList(String datPath) throws IOException {
         DataInputStream inStream = new DataInputStream(new FileInputStream(datPath));
         BufferedReader reader = new BufferedReader(new InputStreamReader(inStream));
@@ -86,5 +85,14 @@ public class SurvivorList {
             survivors.remove(surv);
             out.println("removed");
         }
+    }
+
+    @Override
+    public String toString() {
+        String output = "";
+        for (Survivor surv  : survivors) {
+            output += surv.toString() + "\n";
+        }
+        return output;
     }
 }
