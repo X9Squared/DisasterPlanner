@@ -17,7 +17,7 @@ public abstract class ZipMethods {
         ArrayList<ZipCode> output = new ArrayList<>();
         Scanner crawler;
         try {
-            crawler = new Scanner(new File("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\src\\Assets\\uszips.csv"));
+            crawler = new Scanner(new File("src/Assets/uszips.xlsx"));
         } catch (java.io.FileNotFoundException e) {
             //Handles file not found exception to prevent errors
             out.println("Cannot find zip code database, check paths: " + e);
