@@ -23,13 +23,12 @@ public class SurvivorList {
         BufferedReader reader = new BufferedReader(new InputStreamReader(inStream));
         while (reader.ready()) {
                 String line = reader.readLine();
-                String[] splitData = line.split("_");
-                for (String str : splitData) {
-                    out.println(str);
+                if (line.length() > 0) {
+                    String[] splitData = line.split("_");
+                    Survivor temp = new Survivor(splitData[0], Integer.parseInt(splitData[2]),
+                            zips.searchLoc(Integer.parseInt(splitData[3])), Integer.parseInt(splitData[1]), splitData[4], splitData[5]);
+                    add(temp);
                 }
-                Survivor temp = new Survivor(splitData[0], Integer.parseInt(splitData[2]),
-                        zips.searchLoc(Integer.parseInt(splitData[3])), Integer.parseInt(splitData[1]), splitData[4], splitData[5]);
-                add(temp);
         }
     }
 

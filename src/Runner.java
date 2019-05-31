@@ -38,12 +38,12 @@ public class Runner extends javax.swing.JFrame {
         provOutput = new BufferedWriter(new FileWriter("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\src\\providerDatabase.dat", true));
         survOutput = new BufferedWriter(new FileWriter("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\src\\survivorDatabase.dat", true));
         try {
-            getSurvivors().updateList("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\survivorDatabase.dat");
+            getSurvivors().updateList("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\src\\survivorDatabase.dat");
         } catch (IOException e) {
             out.println(e);
         }
         try {
-            getProviders().updateList("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\providerDatabase.dat");
+            getProviders().updateList("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\src\\providerDatabase.dat");
         } catch (IOException e) {
             out.println(e);
         }
