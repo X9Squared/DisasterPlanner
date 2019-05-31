@@ -468,6 +468,11 @@ public class Runner extends javax.swing.JFrame {
             e.printStackTrace();
         }
         output.setText(getProviders().searchClosestProvider(temp.getNeed(), temp.getLocation()));
+        String output2 = "";
+        for (Survivor surv : survivors.getSurvivors()) {
+            output2+= surv + "\n";
+        }
+        survivorListPrint.setText(output2);
     }
 
     private void PROVSUBMITActionPerformed(java.awt.event.ActionEvent evt) {
@@ -493,6 +498,11 @@ public class Runner extends javax.swing.JFrame {
             outputString += survs.toString() + " | ";
         }
         output.setText(outputString);
+        String output3 = "";
+        for (Provider prov : providers.getProviders()) {
+            output3+= prov + "\n";
+        }
+        survivorListPrint.setText(output3);
     }
 
     /**

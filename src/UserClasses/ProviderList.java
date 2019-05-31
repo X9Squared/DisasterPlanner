@@ -24,8 +24,8 @@ public class ProviderList {
     }
 
     public void remove(Provider temp) {
-        if (providers.contains(temp)) {
-            providers.remove(temp);
+        if (getProviders().contains(temp)) {
+            getProviders().remove(temp);
             out.println("removed");
         }
     }
@@ -58,7 +58,7 @@ public class ProviderList {
         double minDistance = Double.MAX_VALUE;
         boolean found = false;
         Provider closestProv = new Provider();
-        for (Provider prov : providers) {
+        for (Provider prov : getProviders()) {
             if (prov.getService().equals(need)) {
                 found = true;
                 ZipCode temp = zips.searchLoc(zip.getZipcode());
@@ -79,7 +79,7 @@ public class ProviderList {
     @Override
     public String toString() {
         String output = "";
-        for (Provider prov : providers) {
+        for (Provider prov : getProviders()) {
             output += prov.toString() + "\n";
         }
         return output;

@@ -13,7 +13,7 @@ public class SurvivorList {
     private ZipList zips;
 
     public SurvivorList() {
-        survivors = new ArrayList<>();
+        setSurvivors(new ArrayList<>());
         zips = new ZipList();
         zips.setZips();
     }
@@ -40,7 +40,7 @@ public class SurvivorList {
         contingency.add("No survivors found within the specified threshold - please try again");
         ZipCode provLoc = zips.searchLoc(zip.getZipcode());
         boolean found = false;
-        for (Survivor surv : survivors) {
+        for (Survivor surv : getSurvivors()) {
             if (surv.getNeed().equals(service)) {
                 found = true;
                 double tempDist = provLoc.calcDistance(surv.getLocation());
@@ -76,13 +76,13 @@ public class SurvivorList {
     }
 
     public void add(Survivor surv) {
-        survivors.add(surv);
+        getSurvivors().add(surv);
         out.println("added");
     }
 
     public void remove(Survivor surv) {
-        if (survivors.contains(surv)) {
-            survivors.remove(surv);
+        if (getSurvivors().contains(surv)) {
+            getSurvivors().remove(surv);
             out.println("removed");
         }
     }
@@ -90,7 +90,7 @@ public class SurvivorList {
     @Override
     public String toString() {
         String output = "";
-        for (Survivor surv  : survivors) {
+        for (Survivor surv  : getSurvivors()) {
             output += surv.toString() + "\n";
         }
         return output;
