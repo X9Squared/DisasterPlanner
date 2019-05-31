@@ -29,6 +29,14 @@ public class Runner extends javax.swing.JFrame {
      * Creates new form Runner
      */
     public Runner() throws FileNotFoundException, IOException {
+        initComponents();
+        id = 0000;
+        setSurvivors(new SurvivorList());
+        setProviders(new ProviderList());
+        zips = new ZipList();
+        zips.setZips();
+        provOutput = new BufferedWriter(new FileWriter("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\src\\providerDatabase.dat", true));
+        survOutput = new BufferedWriter(new FileWriter("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\src\\survivorDatabase.dat", true));
         try {
             getSurvivors().updateList("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\survivorDatabase.dat");
         } catch (IOException e) {
@@ -39,14 +47,6 @@ public class Runner extends javax.swing.JFrame {
         } catch (IOException e) {
             out.println(e);
         }
-        initComponents();
-        id = 0000;
-        setSurvivors(new SurvivorList());
-        setProviders(new ProviderList());
-        zips = new ZipList();
-        zips.setZips();
-        provOutput = new BufferedWriter(new FileWriter("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\src\\providerDatabase.dat", true));
-        survOutput = new BufferedWriter(new FileWriter("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\src\\survivorDatabase.dat", true));
     }
 
     /**
