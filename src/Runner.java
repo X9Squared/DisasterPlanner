@@ -9,7 +9,6 @@ import UserClasses.ProviderList;
 import UserClasses.Survivor;
 import UserClasses.SurvivorList;
 import ZipCore.ZipList;
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
 
 import java.io.*;
 
@@ -32,8 +31,8 @@ public class Runner extends javax.swing.JFrame {
     public Runner() throws FileNotFoundException, IOException {
         initComponents();
         id = 0000;
-        survivors = new SurvivorList();
-        providers = new ProviderList();
+        setSurvivors(new SurvivorList());
+        setProviders(new ProviderList());
         zips = new ZipList();
         zips.setZips();
         provOutput = new BufferedWriter(new FileWriter("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\src\\providerDatabase.dat", true));
@@ -442,8 +441,8 @@ public class Runner extends javax.swing.JFrame {
     private void SURVSUBMITActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
         Survivor temp = new Survivor(nameInputSurv.getText(), id, zips.searchLoc(Integer.parseInt(zipFieldSurv.getText())),
-                ageSlider.getValue(), (String) needServiceList.getSelectedValue(), survNotes.getText());
-        survivors.add(temp);
+                ageSlider.getValue(), (String) needServiceList.getSelectedValue(), survNotes.getText()+ " ");
+        getSurvivors().add(temp);
         nameInputSurv.setText("");
         id += 1;
         zipFieldSurv.setText("");
@@ -458,19 +457,14 @@ public class Runner extends javax.swing.JFrame {
             out.println("Exception thrown: ");
             e.printStackTrace();
         }
-        try {
-            survivors.updateList("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\survivorDatabase.dat");
-        } catch (IOException e) {
-            out.println(e);
-        }
-        output.setText(providers.searchClosestProvider(temp.getNeed(), temp.getLocation()));
+        output.setText(getProviders().searchClosestProvider(temp.getNeed(), temp.getLocation()));
     }
 
     private void PROVSUBMITActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add handling code here:
         Provider temp = new Provider(nameInputProv.getText(), id, zips.searchLoc(Integer.parseInt(zipFieldProv.getText())),
-                (String) provServiceList.getSelectedValue(), provNotes.getText());
-        providers.add(temp);
+                (String) provServiceList.getSelectedValue(), provNotes.getText()+" ");
+        getProviders().add(temp);
         nameInputProv.setText("");
         id += 1;
         zipFieldProv.setText("");
@@ -485,12 +479,12 @@ public class Runner extends javax.swing.JFrame {
             e.printStackTrace();
         }
         try {
-            providers.updateList("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\providerDatabase.dat");
+            getProviders().updateList("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\providerDatabase.dat");
         } catch (IOException e) {
             out.println(e);
         }
         String outputString = "";
-        for (String survs : survivors.searchClosestSurvivors(temp.getService(), temp.getLocation(), 100)) {
+        for (String survs : getSurvivors().searchClosestSurvivors(temp.getService(), temp.getLocation(), 100)) {
             outputString += survs.toString() + " | ";
         }
         output.setText(outputString);
@@ -528,6 +522,11 @@ public class Runner extends javax.swing.JFrame {
             public void run() {
                 try {
                     new Runner().setVisible(true);
+                    try {
+                        getSurvivors().updateList("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\survivorDatabase.dat");
+                    } catch (IOException e) {
+                        out.println(e);
+                    }
                 } catch (IOException e) {
                     out.println(e);
                 }
@@ -577,5 +576,21 @@ public class Runner extends javax.swing.JFrame {
     private javax.swing.JLabel survivorTitle;
     private javax.swing.JTextField zipFieldProv;
     private javax.swing.JTextField zipFieldSurv;
+
+    public SurvivorList getSurvivors() {
+        return survivors;
+    }
+
+    public void setSurvivors(SurvivorList survivors) {
+        this.survivors = survivors;
+    }
+
+    public ProviderList getProviders() {
+        return providers;
+    }
+
+    public void setProviders(ProviderList providers) {
+        this.providers = providers;
+    }
     // End of variables declaration//GEN-END:variables
 }
