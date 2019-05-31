@@ -34,13 +34,13 @@ public class ProviderList {
         DataInputStream inStream = new DataInputStream(new FileInputStream(datPath));
         BufferedReader reader = new BufferedReader(new InputStreamReader(inStream));
         while (reader.ready()) {
-                String line = reader.readLine();
-                if (line.length() > 0) {
-                    String[] splitData = line.split("_");
-                    Provider temp = new Provider(splitData[0], Integer.parseInt(splitData[1]),
-                            zips.searchLoc(Integer.parseInt(splitData[2])), splitData[3], splitData[4]);
-                    add(temp);
-                }
+            String line = reader.readLine();
+            if (line.length() > 0) {
+                String[] splitData = line.split("_");
+                Provider temp = new Provider(splitData[0], Integer.parseInt(splitData[1]),
+                        zips.searchLoc(Integer.parseInt(splitData[2])), splitData[3], splitData[4]);
+                add(temp);
+            }
         }
     }
 

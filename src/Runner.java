@@ -9,8 +9,11 @@ import UserClasses.ProviderList;
 import UserClasses.Survivor;
 import UserClasses.SurvivorList;
 import ZipCore.ZipList;
-
-import java.io.*;
+//TODO: COMMENT YO GODDAM CODE U HO
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 
 import static java.lang.System.out;
 
@@ -460,7 +463,7 @@ public class Runner extends javax.swing.JFrame {
 
     private void SURVSUBMITActionPerformed(java.awt.event.ActionEvent evt) {
         Survivor temp = new Survivor(nameInputSurv.getText(), id, zips.searchLoc(Integer.parseInt(zipFieldSurv.getText())),
-                ageSlider.getValue(), (String) needServiceList.getSelectedValue(), survNotes.getText()+ " ");
+                ageSlider.getValue(), (String) needServiceList.getSelectedValue(), survNotes.getText() + " ");
         getSurvivors().add(temp);
         nameInputSurv.setText("");
         id += 1;
@@ -479,14 +482,14 @@ public class Runner extends javax.swing.JFrame {
         output.setText(getProviders().searchClosestProvider(temp.getNeed(), temp.getLocation()));
         String output2 = "";
         for (Survivor surv : survivors.getSurvivors()) {
-            output2+= surv + "\n";
+            output2 += surv + "\n";
         }
         survivorListPrint.setText(output2);
     }
 
     private void PROVSUBMITActionPerformed(java.awt.event.ActionEvent evt) {
         Provider temp = new Provider(nameInputProv.getText(), id, zips.searchLoc(Integer.parseInt(zipFieldProv.getText())),
-                (String) provServiceList.getSelectedValue(), provNotes.getText()+" ");
+                (String) provServiceList.getSelectedValue(), provNotes.getText() + " ");
         getProviders().add(temp);
         nameInputProv.setText("");
         id += 1;
@@ -508,12 +511,12 @@ public class Runner extends javax.swing.JFrame {
         output.setText(outputString);
         String output3 = "";
         for (Provider prov : providers.getProviders()) {
-            output3+= prov + "\n";
+            output3 += prov + "\n";
         }
         survivorListPrint.setText(output3);
     }
 
-    private void resetActionPerformed(java.awt.event.ActionEvent evt) throws IOException{
+    private void resetActionPerformed(java.awt.event.ActionEvent evt) throws IOException {
         BufferedWriter provClear = new BufferedWriter(new FileWriter("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\src\\providerDatabase.dat", false));
         BufferedWriter survClear = new BufferedWriter(new FileWriter("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\src\\survivorDatabase.dat", false));
         provClear.flush();

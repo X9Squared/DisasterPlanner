@@ -12,6 +12,7 @@ public abstract class ZipMethods {
     public ZipMethods() {
         zips = new ArrayList<>();
     }
+
     //Reads uszips.csv into an ArrayList (should be called every time the program starts)
     public static ArrayList<ZipCode> readCsv() {
         ArrayList<ZipCode> output = new ArrayList<>();

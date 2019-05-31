@@ -3,11 +3,8 @@ import UserClasses.ProviderList;
 import UserClasses.Survivor;
 import UserClasses.SurvivorList;
 import ZipCore.ZipList;
-import ZipCore.ZipMethods;
-import ZipCore.ZipCode;
 
 import java.io.IOException;
-import java.util.Scanner;
 
 import static java.lang.System.out;
 
