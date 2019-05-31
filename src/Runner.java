@@ -350,6 +350,16 @@ public class Runner extends javax.swing.JFrame {
         outputTitle.setText("Below are the outputs of your search based on inputted info");
 
         resetButton.setText("Reset");
+        resetButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                try {
+                    resetActionPerformed(evt);
+                } catch (IOException e) {
+                    out.println("help my pants are on fire");
+                    e.printStackTrace();
+                }
+            }
+        });
 
         listDescrip.setText("Below is the complete list of survivors/providers in the database");
 
@@ -449,7 +459,6 @@ public class Runner extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void SURVSUBMITActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
         Survivor temp = new Survivor(nameInputSurv.getText(), id, zips.searchLoc(Integer.parseInt(zipFieldSurv.getText())),
                 ageSlider.getValue(), (String) needServiceList.getSelectedValue(), survNotes.getText()+ " ");
         getSurvivors().add(temp);
@@ -476,7 +485,6 @@ public class Runner extends javax.swing.JFrame {
     }
 
     private void PROVSUBMITActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add handling code here:
         Provider temp = new Provider(nameInputProv.getText(), id, zips.searchLoc(Integer.parseInt(zipFieldProv.getText())),
                 (String) provServiceList.getSelectedValue(), provNotes.getText()+" ");
         getProviders().add(temp);
@@ -503,6 +511,17 @@ public class Runner extends javax.swing.JFrame {
             output3+= prov + "\n";
         }
         survivorListPrint.setText(output3);
+    }
+
+    private void resetActionPerformed(java.awt.event.ActionEvent evt) throws IOException{
+        BufferedWriter provClear = new BufferedWriter(new FileWriter("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\src\\providerDatabase.dat", false));
+        BufferedWriter survClear = new BufferedWriter(new FileWriter("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\src\\survivorDatabase.dat", false));
+        provClear.flush();
+        provClear.close();
+        survClear.flush();
+        survClear.close();
+        survivors.getSurvivors().clear();
+        providers.getProviders().clear();
     }
 
     /**
