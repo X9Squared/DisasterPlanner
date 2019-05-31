@@ -463,6 +463,7 @@ public class Runner extends javax.swing.JFrame {
         } catch (IOException e) {
             out.println(e);
         }
+        output.setText(providers.searchClosestProvider(temp.getNeed(), temp.getLocation()));
     }
 
     private void PROVSUBMITActionPerformed(java.awt.event.ActionEvent evt) {
@@ -488,6 +489,11 @@ public class Runner extends javax.swing.JFrame {
         } catch (IOException e) {
             out.println(e);
         }
+        String outputString = "";
+        for (String survs : survivors.searchClosestSurvivors(temp.getService(), temp.getLocation(), 100)) {
+            outputString += survs.toString() + " | ";
+        }
+        output.setText(outputString);
     }
 
     /**
