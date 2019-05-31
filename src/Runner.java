@@ -36,8 +36,8 @@ public class Runner extends javax.swing.JFrame {
         providers = new ProviderList();
         zips = new ZipList();
         zips.setZips();
-        provOutput = new BufferedWriter(new FileWriter("providerDatabase.dat"));
-        survOutput = new BufferedWriter(new FileWriter("survivorDatabase.dat"));
+        provOutput = new BufferedWriter(new FileWriter("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\src\\providerDatabase.dat", true));
+        survOutput = new BufferedWriter(new FileWriter("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\src\\survivorDatabase.dat", true));
     }
 
     /**
@@ -441,7 +441,7 @@ public class Runner extends javax.swing.JFrame {
 
     private void SURVSUBMITActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
-        Survivor temp = new Survivor(nameInputSurv.getText(), 5, zips.searchLoc(Integer.parseInt(zipFieldSurv.getText())),
+        Survivor temp = new Survivor(nameInputSurv.getText(), id, zips.searchLoc(Integer.parseInt(zipFieldSurv.getText())),
                 ageSlider.getValue(), (String) needServiceList.getSelectedValue(), survNotes.getText());
         survivors.add(temp);
         nameInputSurv.setText("");
@@ -453,8 +453,10 @@ public class Runner extends javax.swing.JFrame {
         try {
             survOutput.write(temp.toString());
             survOutput.newLine();
+            survOutput.flush();
         } catch (IOException e) {
-            out.println("Exception thrown: " + e);
+            out.println("Exception thrown: ");
+            e.printStackTrace();
         }
         try {
             survivors.updateList("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\survivorDatabase.dat");
@@ -465,7 +467,7 @@ public class Runner extends javax.swing.JFrame {
 
     private void PROVSUBMITActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add handling code here:
-        Provider temp = new Provider(nameInputProv.getText(), 5, zips.searchLoc(Integer.parseInt(zipFieldProv.getText())),
+        Provider temp = new Provider(nameInputProv.getText(), id, zips.searchLoc(Integer.parseInt(zipFieldProv.getText())),
                 (String) provServiceList.getSelectedValue(), provNotes.getText());
         providers.add(temp);
         nameInputProv.setText("");
@@ -476,8 +478,10 @@ public class Runner extends javax.swing.JFrame {
         try {
             provOutput.write(temp.toString());
             provOutput.newLine();
+            provOutput.flush();
         } catch (IOException e) {
-            out.println("Exception thrown: " + e);
+            out.println("Exception thrown: ");
+            e.printStackTrace();
         }
         try {
             providers.updateList("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\providerDatabase.dat");
