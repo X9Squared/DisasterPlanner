@@ -1,5 +1,5 @@
 package UserClasses;
-
+//TODO: COMMENT YO GODDAM CODE U HO
 import ZipCore.ZipCode;
 import ZipCore.ZipList;
 

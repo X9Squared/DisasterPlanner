@@ -9,7 +9,7 @@ import UserClasses.ProviderList;
 import UserClasses.Survivor;
 import UserClasses.SurvivorList;
 import ZipCore.ZipList;
-//TODO: COMMENT YO GODDAM CODE U HO
+
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -38,8 +38,10 @@ public class Runner extends javax.swing.JFrame {
         setProviders(new ProviderList());
         zips = new ZipList();
         zips.setZips();
+        //Create writers for writing to dat file
         provOutput = new BufferedWriter(new FileWriter("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\src\\providerDatabase.dat", true));
         survOutput = new BufferedWriter(new FileWriter("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\src\\survivorDatabase.dat", true));
+        //Update lists from the .dat files before starting code
         try {
             getSurvivors().updateList("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\src\\survivorDatabase.dat");
         } catch (IOException e) {
@@ -461,9 +463,11 @@ public class Runner extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //Handles button methods for each button (as indicated in method titles)
     private void SURVSUBMITActionPerformed(java.awt.event.ActionEvent evt) {
         Survivor temp = new Survivor(nameInputSurv.getText(), id, zips.searchLoc(Integer.parseInt(zipFieldSurv.getText())),
                 ageSlider.getValue(), (String) needServiceList.getSelectedValue(), survNotes.getText() + " ");
+        //Reset fields
         getSurvivors().add(temp);
         nameInputSurv.setText("");
         id += 1;
@@ -471,15 +475,18 @@ public class Runner extends javax.swing.JFrame {
         ageSlider.setValue(0);
         needServiceList.clearSelection();
         survNotes.setText("");
+        //Write class to dat file
         try {
             survOutput.write(temp.toString());
             survOutput.newLine();
             survOutput.flush();
         } catch (IOException e) {
-            out.println("Exception thrown: ");
+            out.println("WHEEEEEEEEEEE");
             e.printStackTrace();
         }
+        //Find and write output of search method to the output box.
         output.setText(getProviders().searchClosestProvider(temp.getNeed(), temp.getLocation()));
+        //Add the new class to the database
         String output2 = "";
         for (Survivor surv : survivors.getSurvivors()) {
             output2 += surv + "\n";
@@ -488,6 +495,7 @@ public class Runner extends javax.swing.JFrame {
     }
 
     private void PROVSUBMITActionPerformed(java.awt.event.ActionEvent evt) {
+        //Similar structure to above, see SURVSUBMIT comments
         Provider temp = new Provider(nameInputProv.getText(), id, zips.searchLoc(Integer.parseInt(zipFieldProv.getText())),
                 (String) provServiceList.getSelectedValue(), provNotes.getText() + " ");
         getProviders().add(temp);
@@ -501,21 +509,24 @@ public class Runner extends javax.swing.JFrame {
             provOutput.newLine();
             provOutput.flush();
         } catch (IOException e) {
-            out.println("Exception thrown: ");
+            out.println("WE'RE ALL GONNA DIEEEEE");
             e.printStackTrace();
         }
+        //Because of the ArrayList nature of the survivor output, loop consolidates all ArrayList strings into one for output.
         String outputString = "";
         for (String survs : getSurvivors().searchClosestSurvivors(temp.getService(), temp.getLocation(), 100)) {
             outputString += survs.toString() + " | ";
         }
         output.setText(outputString);
         String output3 = "";
+
         for (Provider prov : providers.getProviders()) {
             output3 += prov + "\n";
         }
         survivorListPrint.setText(output3);
     }
 
+    //Reset button action handler - clears the dat files, and clears arrayLists and database text box.
     private void resetActionPerformed(java.awt.event.ActionEvent evt) throws IOException {
         BufferedWriter provClear = new BufferedWriter(new FileWriter("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\src\\providerDatabase.dat", false));
         BufferedWriter survClear = new BufferedWriter(new FileWriter("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\src\\survivorDatabase.dat", false));
@@ -525,6 +536,8 @@ public class Runner extends javax.swing.JFrame {
         survClear.close();
         survivors.getSurvivors().clear();
         providers.getProviders().clear();
+        survivorListPrint.setText("");
+        providerListPrint.setText("");
     }
 
     /**
