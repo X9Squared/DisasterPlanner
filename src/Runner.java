@@ -42,16 +42,8 @@ public class Runner extends javax.swing.JFrame {
         provOutput = new BufferedWriter(new FileWriter("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\src\\providerDatabase.dat", true));
         survOutput = new BufferedWriter(new FileWriter("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\src\\survivorDatabase.dat", true));
         //Update lists from the .dat files before starting code
-        try {
             getSurvivors().updateList("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\src\\survivorDatabase.dat");
-        } catch (IOException e) {
-            out.println(e);
-        }
-        try {
             getProviders().updateList("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\src\\providerDatabase.dat");
-        } catch (IOException e) {
-            out.println(e);
-        }
     }
 
     /**
@@ -104,6 +96,9 @@ public class Runner extends javax.swing.JFrame {
         survivorListPrint = new javax.swing.JTextArea();
         jScrollPane15 = new javax.swing.JScrollPane();
         providerListPrint = new javax.swing.JTextArea();
+        descrip1 = new javax.swing.JLabel();
+        descrip2 = new javax.swing.JLabel();
+        descrip3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -421,9 +416,16 @@ public class Runner extends javax.swing.JFrame {
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                 .addComponent(resetButton)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)))
+                                                .addComponent(jScrollPane13, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)))
                                 .addContainerGap())
         );
+
+        descrip1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        descrip1.setText("DisasterPlanner, created by Justin Wang, is designed as a location tracker for survivors and providers of services during Natural");
+
+        descrip2.setText("Disasters. In order to use the program, enter in your information whether you are a provider or survivor, and click the search");
+
+        descrip3.setText("button to search for either the closest survivors with the need you are providing, or the closest provider with the need you require.");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -439,24 +441,39 @@ public class Runner extends javax.swing.JFrame {
                                                 .addGap(0, 0, Short.MAX_VALUE)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                                .addComponent(survivorPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addGap(18, 18, 18)
-                                                                .addComponent(providerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addGap(19, 19, 19))
-                                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                                                 .addComponent(jLabel1)
-                                                                .addGap(155, 155, 155))))))
+                                                                .addGap(155, 155, 155))
+                                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                                        .addGroup(layout.createSequentialGroup()
+                                                                                .addComponent(survivorPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                .addGap(18, 18, 18)
+                                                                                .addComponent(providerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                .addComponent(descrip2)
+                                                                                .addComponent(descrip1)))
+                                                                .addGap(19, 19, 19))
+                                                        .addGroup(layout.createSequentialGroup()
+                                                                .addGap(15, 15, 15)
+                                                                .addComponent(descrip3)
+                                                                .addContainerGap())))))
         );
         layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel1)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(descrip1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(descrip2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(descrip3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(survivorPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(providerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(outputPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(providerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(outputPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap())
         );
 
@@ -581,6 +598,9 @@ public class Runner extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton PROVSUBMIT;
+    private javax.swing.JLabel descrip1;
+    private javax.swing.JLabel descrip2;
+    private javax.swing.JLabel descrip3;
     private javax.swing.JButton SURVSUBMIT;
     private javax.swing.JSlider ageSlider;
     private javax.swing.JLabel ageTitle;
