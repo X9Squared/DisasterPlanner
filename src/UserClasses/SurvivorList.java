@@ -1,5 +1,4 @@
 package UserClasses;
-//TODO: COMMENT YO GODDAM CODE U HO
 import ZipCore.ZipCode;
 import ZipCore.ZipList;
 
@@ -11,13 +10,13 @@ import static java.lang.System.out;
 public class SurvivorList {
     private ArrayList<Survivor> survivors;
     private ZipList zips;
-
+    //Constructors
     public SurvivorList() {
         setSurvivors(new ArrayList<>());
         zips = new ZipList();
         zips.setZips();
     }
-
+    //Similar updateList method to ProviderList (see for full commenting)
     public void updateList(String datPath) throws IOException {
         DataInputStream inStream = new DataInputStream(new FileInputStream(datPath));
         BufferedReader reader = new BufferedReader(new InputStreamReader(inStream));
@@ -31,7 +30,7 @@ public class SurvivorList {
                 }
         }
     }
-
+    //Similar to searchProviders method, but instead of checking for minimum, checks for all under threshold
     public ArrayList<String> searchClosestSurvivors(String service, ZipCode zip, double threshold) {
         ArrayList<String> output = new ArrayList<>();
         ArrayList<String> contingency = new ArrayList<>();
@@ -44,19 +43,22 @@ public class SurvivorList {
                 double tempDist = provLoc.calcDistance(surv.getLocation());
                 out.println(tempDist);
                 out.println(surv.getLocation());
+                //Check threshold
                 if (tempDist < threshold) {
+                    //Ouput ArrayList of strings due to the multi-objective output
                     output.add(surv.toString());
                 }
             }
         }
         if (!found) {
+            //Return an ArrayList with no Strings inside, only error message.
             return contingency;
         } else {
             return output;
         }
     }
 
-
+    //Getters/setters
     public ArrayList<Survivor> getSurvivors() {
         return survivors;
     }
@@ -64,15 +66,7 @@ public class SurvivorList {
     public void setSurvivors(ArrayList<Survivor> survivors) {
         this.survivors = survivors;
     }
-
-    public ZipList getZips() {
-        return zips;
-    }
-
-    public void setZips(ZipList zips) {
-        this.zips = zips;
-    }
-
+    //Add/remove methods (same as ProviderList)
     public void add(Survivor surv) {
         getSurvivors().add(surv);
         out.println("added");
