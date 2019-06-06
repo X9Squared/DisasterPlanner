@@ -42,8 +42,9 @@ public class Runner extends javax.swing.JFrame {
         provOutput = new BufferedWriter(new FileWriter("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\src\\providerDatabase.dat", true));
         survOutput = new BufferedWriter(new FileWriter("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\src\\survivorDatabase.dat", true));
         //Update lists from the .dat files before starting code
-            getSurvivors().updateList("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\src\\survivorDatabase.dat");
-            getProviders().updateList("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\src\\providerDatabase.dat");
+        getSurvivors().updateList("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\src\\survivorDatabase.dat");
+        getProviders().updateList("C:\\Users\\wangj1701\\Documents\\DisasterPlanner\\src\\providerDatabase.dat");
+        updateBothLists();
     }
 
     /**
@@ -511,6 +512,20 @@ public class Runner extends javax.swing.JFrame {
         survivorListPrint.setText(output2);
     }
 
+    public void updateBothLists() {
+        String output2 = "";
+        for (Survivor surv : survivors.getSurvivors()) {
+            output2 += surv + "\n";
+        }
+        survivorListPrint.setText(output2);
+        String output3 = "";
+
+        for (Provider prov : providers.getProviders()) {
+            output3 += prov + "\n";
+        }
+        providerListPrint.setText(output3);
+    }
+
     private void PROVSUBMITActionPerformed(java.awt.event.ActionEvent evt) {
         //Similar structure to above, see SURVSUBMIT comments
         Provider temp = new Provider(nameInputProv.getText(), id, zips.searchLoc(Integer.parseInt(zipFieldProv.getText())),
@@ -532,15 +547,16 @@ public class Runner extends javax.swing.JFrame {
         //Because of the ArrayList nature of the survivor output, loop consolidates all ArrayList strings into one for output.
         String outputString = "";
         for (String survs : getSurvivors().searchClosestSurvivors(temp.getService(), temp.getLocation(), 100)) {
-            outputString += survs.toString() + " | ";
+            outputString += survs + " | ";
         }
+
         output.setText(outputString);
         String output3 = "";
 
         for (Provider prov : providers.getProviders()) {
             output3 += prov + "\n";
         }
-        survivorListPrint.setText(output3);
+        providerListPrint.setText(output3);
     }
 
     //Reset button action handler - clears the dat files, and clears arrayLists and database text box.
@@ -553,8 +569,7 @@ public class Runner extends javax.swing.JFrame {
         survClear.close();
         survivors.getSurvivors().clear();
         providers.getProviders().clear();
-        survivorListPrint.setText("");
-        providerListPrint.setText("");
+        updateBothLists();
     }
 
     /**
