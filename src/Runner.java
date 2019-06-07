@@ -8,6 +8,7 @@ import UserClasses.Provider;
 import UserClasses.ProviderList;
 import UserClasses.Survivor;
 import UserClasses.SurvivorList;
+import ZipCore.ZipCode;
 import ZipCore.ZipList;
 
 import java.io.BufferedWriter;
@@ -503,7 +504,9 @@ public class Runner extends javax.swing.JFrame {
             e.printStackTrace();
         }
         //Find and write output of search method to the output box.
-        output.setText(getProviders().searchClosestProvider(temp.getNeed(), temp.getLocation()));
+        String[] tempSplit = getProviders().searchClosestProvider(temp.getNeed(), temp.getLocation()).split("_");
+        ZipCode tempZip = new ZipCode(Integer.parseInt(tempSplit[2]));
+        output.setText(getProviders().searchClosestProvider(temp.getNeed(), temp.getLocation()) + "| Located " + temp.getLocation().calcDistance(tempZip) + " kilometers away. \n");
         //Add the new class to the database
         String output2 = "";
         for (Survivor surv : survivors.getSurvivors()) {
@@ -547,7 +550,9 @@ public class Runner extends javax.swing.JFrame {
         //Because of the ArrayList nature of the survivor output, loop consolidates all ArrayList strings into one for output.
         String outputString = "";
         for (String survs : getSurvivors().searchClosestSurvivors(temp.getService(), temp.getLocation(), 100)) {
-            outputString += survs + " | ";
+            String[] tempSplit = survs.split("_");
+            ZipCode tempCode = new ZipCode(Integer.parseInt(tempSplit[3]));
+            outputString += survs + " | Located " + tempCode.calcDistance(temp.getLocation()) + " kilometers away. \n" ;
         }
 
         output.setText(outputString);
